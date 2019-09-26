@@ -1,5 +1,7 @@
 #!/bin/bash
 #mysql has to be started this way as it doesn't work to call from /etc/init.d
+mkdir /var/run/mysqld
+chown mysql:mysql /var/run/mysqld
 /usr/bin/mysqld_safe & 
 sleep 10s 
 mysql < /database/scoreboard-final.sql

@@ -3,8 +3,8 @@ FROM ubuntu:latest
 MAINTAINER Ming Chow <mchow@cs.tufts.edu>
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php5 python-setuptools vim-tiny php5-mysql sudo
-RUN easy_install supervisor
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php python-setuptools vim-tiny php-mysql python-pip sudo 
+RUN pip install supervisor
 COPY ./database /database
 ADD ./scripts/start.sh /start.sh
 ADD ./scripts/foreground.sh /etc/apache2/foreground.sh
